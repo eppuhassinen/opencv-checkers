@@ -1,0 +1,6 @@
+calibration/ folder needed for calibrating the inner distortions of your camera.
+The folder needs to have 10+ .jpg images of 8x8 checkers board from different angles.
+
+These jpg files are accessed in camera_calibration.py
+
+run camera_calibration.py and see how many of the pictures get recognized as checkers boards
