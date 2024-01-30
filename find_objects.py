@@ -24,6 +24,8 @@ demo = False # visualizes more of thre process
 
 if len(sys.argv) > 1 and sys.argv[1] in modes:
     mode = sys.argv[1]
+else:
+    mode = 'live'
 
 if len(sys.argv) > 2 and sys.argv[2] == 'demo':
     demo = True
@@ -150,7 +152,11 @@ if (input("Calibration not needed if setup has not changed \n"
     ret, frame = cap.read()
     calibrate_board_corners(undistort_frame(frame))
 
-print(f"\nProgram has started\nPress Q in program window to quit")
+print(f"\nProgram has started in {mode} mode.\nPress Q in program window to quit")
+
+# creates a new pieces file if one did not exist
+with open('pieces.txt', 'w') as f:
+    f.write('Create a new text file!')
 
 # loops until q is pressed
 while (cap.isOpened()):
