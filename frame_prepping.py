@@ -26,8 +26,10 @@ def load_data():
     loaded_data = np.loadtxt('calibration_data.txt')
     loaded_camera_matrix = loaded_data[:9].reshape((3, 3))
     loaded_distortion_coeffs = loaded_data[9:]
-
-    loaded_board_corners = np.loadtxt('board_corners.txt')
+    try:
+        loaded_board_corners = np.loadtxt('board_corners.txt')
+    except FileNotFoundError:
+        loaded_board_corners = [[],[],[],[]]
     return loaded_camera_matrix, loaded_distortion_coeffs, loaded_board_corners
 
 
